@@ -7,10 +7,12 @@ from http import HTTPStatus
 from flask_restful import Api
 from flask_jwt_extended import JWTManager
 from resources.login import UserLoginResource
+from resources.movie import MovieListResource
 
 from resources.register import UserRegisterResource
 
 from resources.logout import UserLogoutResource, jwt_blacklist
+from resources.user import UserInfoResource
 
 app = Flask(__name__)
 
@@ -32,6 +34,8 @@ api = Api(app)
 api.add_resource(UserRegisterResource, '/api/v1/user/register')
 api.add_resource(UserLoginResource, '/api/v1/user/login')
 api.add_resource(UserLogoutResource, '/api/v1/user/logout')
+api.add_resource(UserInfoResource, '/api/v1/user/me')
+api.add_resource(MovieListResource, '/api/v1/movie')
 
 if __name__ == '__main__' :
     app.run()
