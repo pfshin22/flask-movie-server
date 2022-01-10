@@ -8,7 +8,7 @@ from flask_restful import Api
 from flask_jwt_extended import JWTManager
 from resources.favorite import FavoriteListResource, FavoriteResource
 from resources.login import UserLoginResource
-from resources.movie import MovieListResource, MovieSearchResource
+from resources.movie import MovieListResource, MovieRealtimeRecommResource, MovieRecommResource, MovieSearchResource
 
 from resources.register import UserRegisterResource
 
@@ -43,6 +43,8 @@ api.add_resource(MovieSearchResource,'/api/v1/movie/search')
 api.add_resource(ReviewResource, '/api/v1/review')
 api.add_resource(FavoriteResource, '/api/v1/favorite/<int:movie_id>')
 api.add_resource(FavoriteListResource, '/api/v1/favorite')
+api.add_resource(MovieRecommResource, '/api/v1/movie/recommandation')
+api.add_resource(MovieRealtimeRecommResource,'/api/v1/movie/realrecommandation' )
 
 if __name__ == '__main__' :
     app.run()
